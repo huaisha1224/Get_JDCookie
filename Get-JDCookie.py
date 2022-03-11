@@ -1,5 +1,6 @@
 import asyncio
-# from gettext import find
+import pyperclip
+import os
 from pyppeteer import launch
 
 
@@ -12,8 +13,11 @@ def find_cookie(cookies):
         if 'pt_key' in item:
             pt_key = item
     jd_cookie = pt_pin+';'+pt_key+';'
+    pyperclip.copy(jd_cookie)   # 拷贝JDcookie到剪切板
     print("Cookie:", jd_cookie)
-    return jd_cookie
+    print("已拷贝Cookie到剪切板，直接黏贴即可")
+    # return jd_cookie
+    os.system('pause')  # 按任意键继续
 
 
 
