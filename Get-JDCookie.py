@@ -33,7 +33,7 @@ async def main():
     context = await browser.createIncognitoBrowserContext() # 隐身模式
     page = await context.newPage()           # 打开新的标签页
     await page.setViewport({'width': 1000, 'height': 800})      # 页面大小一致
-    await page.goto('https://home.m.jd.com',{'timeout': 1000*60}) # 访问主页、增加超时解决Navigation Timeout Exceeded: 30000 ms exceeded报错
+    await page.goto('https://home.m.jd.com/myJd/home.action',{'timeout': 1000*60}) # 访问主页、增加超时解决Navigation Timeout Exceeded: 30000 ms exceeded报错
 
     await page.waitFor(1000)
     elm = await page.waitForXPath('//*[@id="myHeader"]',timeout=0)  # 通过判断用户头像是否存在来确定登录状态
