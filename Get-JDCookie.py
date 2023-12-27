@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
+__author__ = "Huaisha2049"
 import asyncio
 from random import random
 from socket import timeout
@@ -27,7 +28,6 @@ def find_cookie(cookies):
 async def main():
     """使用pyppeteer库来登录京东、并获取cookie
     """
-    print('请在弹出的网页中登录账号、推荐使用账户短信验证码的形式登录。')
     browser = await launch(headless=False, dumpio=True, autoClose=False,
                            args=['--no-sandbox', '--window-size=1000,800', '--disable-infobars'])   # 进入有头模式
     context = await browser.createIncognitoBrowserContext() # 隐身模式
@@ -50,4 +50,25 @@ async def main():
 
 
 if __name__== "__main__":
+    aaa = """
+
+                        　　 へ　　　　　／|
+                        　　/＼7　　　 ∠＿/
+                        　 /　│　　 ／　／
+                        　│　Z ＿,＜　／　　 /`ヽ
+                        　│　　　　　ヽ　　 /　　〉
+                        　 Y　　　　　`　 /　　/
+                        　●　　●　　〈　　/
+                        　()　 へ　　　　|　＼〈
+                        　　> _　 ィ　 │ ／／
+                        　 / へ　　 /　＜| ＼＼
+                        　 ヽ_　　(_／　 │／／
+                        　　7　　　　　　　|／
+                        　　＞―r￣￣`―＿
+            
+        使用说明：在弹出的网页中登录账号、推荐使用账户短信验证码的形式登录
+        问题反馈：https://github.com/huaisha1224
+        作者：怀沙2049
+"""
+    print(aaa)
     asyncio.get_event_loop().run_until_complete(main()) #调用
