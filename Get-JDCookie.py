@@ -31,6 +31,12 @@ async def main():
     browser = await launch(headless=False, dumpio=True, autoClose=False,
                            args=['--no-sandbox', '--window-size=1000,800', '--disable-infobars'])   # 进入有头模式
     context = await browser.createIncognitoBrowserContext() # 隐身模式
+
+    # 关闭默认打开的第一个标签页
+    pages = await browser.pages()
+    if pages:
+        await pages[0].close()
+
     page = await context.newPage()           # 打开新的标签页
     await page.setViewport({'width': 1000, 'height': 800})      # 页面大小一致
     await page.goto('https://home.m.jd.com/myJd/home.action',{'timeout': 1000*60}) # 访问主页、增加超时解决Navigation Timeout Exceeded: 30000 ms exceeded报错
